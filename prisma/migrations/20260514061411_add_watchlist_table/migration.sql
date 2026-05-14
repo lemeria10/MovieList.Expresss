@@ -1,0 +1,16 @@
+-- CreateEnum
+CREATE TYPE "WatchListStatus" AS ENUM ('PLANNED', 'WATCHING', 'COMPLETED', 'DROPPED');
+
+-- CreateTable
+CREATE TABLE "WatchListItem" (
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "movieId" TEXT NOT NULL,
+    "status" "WatchListStatus" NOT NULL DEFAULT 'PLANNED',
+    "rating" INTEGER,
+    "notes" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "WatchListItem_pkey" PRIMARY KEY ("id")
+);
