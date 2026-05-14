@@ -4,6 +4,7 @@ import {connectToDatabase, disconnectFromDatabase} from './config/db.js';
 
 import movieRoutes from './routes/movieRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+import watchlistRoutes from './routes/watchlistRoutes.js';
     
 config(); // Load environment variables from .env file
 connectToDatabase(); // Connect to the database before starting the server
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
  
 app.use('/movies', movieRoutes);
 app.use('/auth', authRoutes);
+app.use('/watchlist', watchlistRoutes);
 
 
 
